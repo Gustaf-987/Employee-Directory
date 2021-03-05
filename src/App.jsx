@@ -4,6 +4,8 @@ import Wrapper from "./components/Wrapper";
 import Header from "./components/Header";
 import './App.css';
 
+//creates and exports all components of the app
+
 function App() {
   return (
     <div className="App">

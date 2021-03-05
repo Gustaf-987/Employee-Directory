@@ -7,13 +7,14 @@ const DataTable = () => {
   const context = useContext(DataAreaContext);
 
   return (
-
+    // table displaying all the content
     <div className="datatable mt-5">
       <table
         id="table"
         className="table table-striped table-hover table-condensed"
       >
         <thead>
+          {/* handles sorting when arrow is clicked */}
           <tr>
             {context.developerState.headings.map(({ name, width }) => {
               return (
@@ -22,18 +23,18 @@ const DataTable = () => {
                   key={name}
                   style={{ width }}
                   onClick={() => {
-                    // context.handleSort(name.toLowerCase());
                     context.handleSort(name);
                   }}
                 >
                   {name}
+                  {/* pointer arrow to sort */}
                   <span className="pointer"></span>
                 </th>
               );
             })}
           </tr>
         </thead>
-
+            {/* importing and displaying the body table component */}
         <DataBody />
       </table>
     </div>

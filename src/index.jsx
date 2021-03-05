@@ -4,6 +4,8 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 
+//Method to render entire App to HTML
+
 ReactDOM.render(
   <React.StrictMode>
     <App />

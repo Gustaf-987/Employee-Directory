@@ -7,6 +7,7 @@ import DataAreaContext from "../utils/DataAreaContext";
 
 const DataArea = () => {
   const [developerState, setDeveloperState] = useState({
+    //  displays users in descening order
     users: [],
     order: "descend",
     filteredUsers: [],
@@ -19,6 +20,7 @@ const DataArea = () => {
     ]
   });
 
+  //  checks state of displayed users and handles reversing order
   const handleSort = heading => {
     let currentOrder = developerState.headings
       .filter(elem => elem.name === heading)
@@ -31,7 +33,7 @@ const DataArea = () => {
       currentOrder = "descend";
     }
 
-    const compareFnc = (a, b) => {
+    const compare = (a, b) => {
       if (currentOrder === "ascend") {
         // account for missing values
         if (a[heading] === undefined) {
@@ -64,7 +66,9 @@ const DataArea = () => {
         }
       }
     };
-    const sortedUsers = developerState.filteredUsers.sort(compareFnc);
+
+
+    const sortedUsers = developerState.filteredUsers.sort(compare);
     const updatedHeadings = developerState.headings.map(elem => {
       elem.order = elem.name === heading ? currentOrder : elem.order;
       return elem;
@@ -76,7 +80,7 @@ const DataArea = () => {
       headings: updatedHeadings
     });
   };
-
+  //handles alphabetical ordering by name
   const handleSearchChange = event => {
     const filter = event.target.value;
     const filteredList = developerState.users.filter(item => {
@@ -90,7 +94,7 @@ const DataArea = () => {
     setDeveloperState({ ...developerState, filteredUsers: filteredList });
   };
 
-  ///https://stackoverflow.com/questions/53120972/how-to-call-loading-function-with-react-useeffect-only-once
+  //axios call to get randomized user data
   useEffect(() => {
     API.getUsers().then(results => {
       console.log(results.data.results);
@@ -102,13 +106,15 @@ const DataArea = () => {
     });
   }, []);
 
+
+  // returning and exporting functionality for navbar and data table
   return (
     <DataAreaContext.Provider
       value={{ developerState, handleSearchChange, handleSort }}
     >
       <Nav />
       <div className="data-area">
-        {developerState.filteredUsers.length > 0 ? <DataTable /> : <div></div>}
+        {developerState.filteredUsers.length > 0 && <DataTable />}
       </div>
     </DataAreaContext.Provider>
   );

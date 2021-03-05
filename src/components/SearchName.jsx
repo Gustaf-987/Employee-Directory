@@ -6,6 +6,7 @@ const SearchName = () => {
   const context = useContext(DataAreaContext);
 
   return (
+    //setting up search name form box component
     <div className="searchbox">
       <div className="input-group">
           <div className="input-group-prepend">

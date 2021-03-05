@@ -5,6 +5,7 @@ import DataAreaContext from "../utils/DataAreaContext";
 const DataBody = () => {
   const context = useContext(DataAreaContext);
 
+    //formatting for DOB
   function formatDate(date) {
     const dateArray = date.split("-");
     const year = dateArray[0];
@@ -14,7 +15,7 @@ const DataBody = () => {
     const formattedDate = [month, day, year].join("-");
     return formattedDate;
   }
-
+  //returns table elements for each user
   return (
     <tbody>
       {context.developerState.filteredUsers[0] !== undefined && context.developerState.filteredUsers[0].name !== undefined ? (

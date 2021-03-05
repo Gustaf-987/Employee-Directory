@@ -1,6 +1,6 @@
 import React from 'react';
-import "../styles/Wrapper.css";
 
+//wrapper div to contain all rendered HTML components
 function Wrapper({ children }) {
   return (
       <div className="wrapper">

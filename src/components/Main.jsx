@@ -1,6 +1,9 @@
 import React from "react";
 import DataArea from "./DataArea";
-import "../styles/Main.css";
+
+
+//consolidates and exports all functionality and componenets to the body
+// Main > DataArea(functionality) > DataTable(html table) > DataBody(html elements)
 
 function Main () {
     return (
