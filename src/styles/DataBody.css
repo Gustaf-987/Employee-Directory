@@ -1,3 +1,20 @@
+.img-cell {
+    background-color: cadetblue;
+}
+
 .name-cell {
     text-transform: capitalize;
+    background-color: cadetblue;
+}
+
+.phone-cell {
+    background-color: cadetblue;
+}
+
+.email-cell {
+    background-color: cadetblue;
+}
+
+.dob-cell {
+    background-color: cadetblue;
 }
