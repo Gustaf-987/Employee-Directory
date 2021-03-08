@@ -9,11 +9,11 @@ const SearchName = () => {
     //setting up search name form box component
     <div className="searchbox">
       <div className="input-group">
-          <div className="input-group-prepend">
+          {/* <div className="input-group-prepend">
             <span className="input-group-text" id="">
               Search
             </span>
-          </div>
+          </div> */}
           <input
           className="form-control mr-sm-2"
           type="search"
